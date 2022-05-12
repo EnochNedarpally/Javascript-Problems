@@ -1,3 +1,21 @@
+//SOLUTION 1
+//Check wheter a string is an anagram or not
+const anagram = (string1,string2) =>{
+    //remove non alphabetic character and converts the string to lowercase
+    string1=string1.toLowerCase().replace(/[\W_0-9]+/g,"");
+    string2=string2.toLowerCase().replace(/[\W_0-9]+/g,"");
+    string1=string1.split("").sort().join("");
+    string2=string2.split("").sort().join("");
+    if(string1===string2){
+        console.log("Is an Anagram")
+    }
+    else console.log("Is not an Anagram")
+}
+
+anagram("time","item");
+
+****************************************************************
+//SOLUTION 2
 //Check wheter a string is an anagram or not
 const anagram = (string1,string2) =>{
     //remove non alphabetic character and converts the string to lowercase
