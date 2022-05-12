@@ -1,7 +1,8 @@
 //Check wheter a string is an anagram or not
 const anagram = (string1,string2) =>{
-    string1=string1.toLowerCase().replace(/[\W_]+/g,"");
-    string2=string2.toLowerCase().replace(/[\W_]+/g,"");
+    //remove non alphabetic character and converts the string to lowercase
+    string1=string1.toLowerCase().replace(/[\W_0-9]+/g,"");
+    string2=string2.toLowerCase().replace(/[\W_0-9]+/g,"");
    const occurence1=findOccurence(string1);
    const occurence2=findOccurence(string2);
    if(string1.length===string2.length){
@@ -29,6 +30,8 @@ const anagram = (string1,string2) =>{
         console.log("Is not a Anagram")
    }
 }
+
+//Finds occurence of a string
 const findOccurence=(string)=>{
     console.log(string);
     const occurence={}
@@ -41,4 +44,4 @@ const findOccurence=(string)=>{
     }
     return occurence;
 }
-anagram("R $ache !l","ChaR.le");
+anagram("R $ache12 !l","Ch4a5R.le");
