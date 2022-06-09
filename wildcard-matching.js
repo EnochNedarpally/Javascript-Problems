@@ -1,3 +1,28 @@
+
+/* Solution 1*/
+var isMatch = function(s, p) {
+    const m = s.length, n = p.length;
+    let l = 0, r = 0, star = -1, lT = -1;
+    while(l < m) {
+        if (r < n && (p[r] === '?' || p[r] === s[l])) {
+            l++;
+            r++;
+        } else if (r < n && p[r] === '*') {
+            star = r;
+            lT = l;
+            r++;
+        } else if (star === -1) return false;
+        else {
+            r = star + 1;
+            l = ++lT;
+        }
+    }
+    for(let i = r; i < n; i++) if (p[i] !== '*') return false;
+    return true;
+};
+
+
+/* Solution 2*/
 /**
  * @param {string} s
  * @param {string} p
@@ -61,3 +86,4 @@ var isMatch = function (s, p) {
   return result;
 };
 console.log(isMatch("", "****"));
+
